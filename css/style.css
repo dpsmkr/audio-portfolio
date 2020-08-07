@@ -60,7 +60,6 @@ li a:active,
 section a:hover,
 section a:active,
 h2:hover,
-h1:hover,
 .boxy:hover {
   background-color: #111;
   color: #fff;
@@ -81,6 +80,10 @@ h1:hover,
   padding: 25px;
   text-align: right;
   box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#check {
+  display: none;
 }
 
 .contact {
@@ -139,11 +142,19 @@ h1:hover,
   text-align: center;
 }
 
-@media only screen and (max-width: 768px) {
+.btn-check {
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+  padding: 0 10px 10px 10px;
+  line-height: 0;
+}
+
+@media screen and (max-width: 992px) {
 
   h1,
   .text-1 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     border: 0 transparent;
   }
 
@@ -158,31 +169,37 @@ h1:hover,
 
   li {
     padding-right: 5px;
+    display: inline-block;
+    font-size: 0.9rem;
   }
 
   #home {
-    padding-top: 140px;
+    padding-top: 170px;
   }
 
   #sidenav {
     width: 100%;
     height: 120px;
-    padding: 0;
+    padding: 5px;
     margin: auto;
     background-color: #fff;
   }
 
   #sidenav header {
+    padding-left: 7%;
     text-align: right;
     position: fixed;
-    left: 40px;
+    border-bottom: 3px solid #111;
+    border-right: 3px solid #111;
   }
 
   .nav-bar {
+    display: block;
     position: absolute;
-    right: 0;
-    top: 10px;
+    width: 97%;
+    top: 35%;
     margin-bottom: 0;
+    transition: all .3s;
   }
 
   .nav-bar a {
@@ -190,12 +207,10 @@ h1:hover,
   }
 
   .contact {
-    border-top: 3px solid #111;
     position: absolute;
-    bottom: 0;
-    padding-left: 10px;
     margin-bottom: 0;
-    text-align: left;
+    margin-left: 25%;
+    text-align: right;
     font-size: 0.8rem;
   }
 
@@ -210,5 +225,39 @@ h1:hover,
     margin: auto;
     width: 100%;
     height: 200px;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  li {
+    display: block;
+  }
+  .nav-bar {
+    top: 5px;
+    width: 85%;
+    left: -100%;
+    height: 100%;
+    background-color: #fefefe;
+    border-top: 3px solid #111;
+  }
+
+  .btn-check {
+    margin-top: 0px;
+    display: block;
+  }
+
+  #check:checked~.nav-bar {
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .nav-bar {
+    width: 83%;
+  }
+
+  #sidenav header {
+    padding-left: 0;
+    margin-left: 0;
   }
 }
