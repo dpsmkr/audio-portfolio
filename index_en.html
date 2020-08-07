@@ -12,14 +12,14 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="manifest" href="favicon/site.webmanifest">
-  <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="shortcut icon" href="favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
   <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-config" content="favicon/browserconfig.xml">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
 </head>
 
@@ -29,13 +29,17 @@
       <nav id="sidenav">
         <header>
           <h1>Jonas Dalacorte<br><span class="text-1">Punk Audio</span></h1>
+          <p class="title-desc">
+            Tracking, editing, mixing, mastering.
+          </p>
+          <p class="contact">
+            <a href="mailto:jonas@yonsounds.com" target="_blank">jonas@yonsounds.com</a>
+          </p>
         </header>
-        <p class="title-desc">
-          Tracking, editing, mixing, mastering.
-        </p>
-        <p class="contact">
-          Contact:<a href="mailto:jonas@yonsounds.com" target="_blank">jonas@yonsounds.com</a>
-        </p>
+        <input type="checkbox" id="check">
+        <label for="check" class="btn-check">
+          <i class="fas fa-bars"></i>
+        </label>
         <p>
           <span class="footer">
             <a href="https://github.com/dpsmkr" target="_blank"><i class="fab fa-github"></i></a>
@@ -48,6 +52,7 @@
             <br />
             &copy; Jonas Dalacorte, 2020.</span>
         </p>
+
         <ul class="nav-bar">
           <li><a href="#home">>> Digital Audio</a></li>
           <li><a href="#soundtrack">>> Soundtrack</a></li>
