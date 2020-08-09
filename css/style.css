@@ -64,7 +64,7 @@ h2:hover,
   background-color: #111;
   color: #fff;
   text-decoration: none;
-  transition: all .2s;
+  transition: all 0.2s;
   border-radius: 3px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -151,7 +151,6 @@ h2:hover,
 }
 
 @media screen and (max-width: 992px) {
-
   h1,
   .text-1 {
     font-size: 1.5rem;
@@ -199,7 +198,7 @@ h2:hover,
     width: 97%;
     top: 35%;
     margin-bottom: 0;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 
   .nav-bar a {
@@ -242,11 +241,11 @@ h2:hover,
   }
 
   .btn-check {
-    margin-top: 0px;
+    margin-top: 0;
     display: block;
   }
 
-  #check:checked~.nav-bar {
+  #check:checked ~ .nav-bar {
     left: 0;
   }
 }
