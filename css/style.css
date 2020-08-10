@@ -64,7 +64,7 @@ h2:hover,
   background: #111;
   color: #fff;
   text-decoration: none;
-  transition: all 0.2s;
+  transition: all 0.2s ease-in;
   border-radius: 3px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -198,7 +198,7 @@ h2:hover,
     width: 97%;
     top: 35%;
     margin-bottom: 0;
-    transition: all 0.3s;
+    transition: all 0.3s ease-in;
   }
 
   .nav-bar a {
