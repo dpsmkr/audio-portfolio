@@ -20,6 +20,10 @@ body {
   font-size: 0.9rem;
 }
 
+section {
+  margin-bottom: 30px;
+}
+
 /* classes */
 .container {
   margin-left: 35%;
@@ -36,6 +40,13 @@ body {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.boxy:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.05);
+  cursor: pointer;
 }
 
 /* nav */
@@ -61,10 +72,15 @@ body {
   margin-bottom: 30px;
 }
 
+.nav-item .link {
+  letter-spacing: 5px;
+}
+
 .more .link:hover,
 .nav-bar .link:hover,
 .mail:hover {
   border-bottom: 3px solid crimson;
+  letter-spacing: normal;
 }
 
 .btn-check {
@@ -105,6 +121,7 @@ body {
   margin-bottom: 25px;
   text-decoration: none;
   border-bottom: 3px solid transparent;
+  transition: all 0.3s ease-in-out;
 }
 
 .mail {
@@ -113,7 +130,6 @@ body {
 
 .link:hover {
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
 }
 
 /* section */
@@ -170,6 +186,10 @@ body {
 }
 
 /* social */
+.fab {
+  transition: all 0.3s ease-in-out;
+}
+
 .fab.fa-github:hover,
 .fab.fa-github:visited {
   color: #6e5494;
@@ -199,9 +219,8 @@ body {
 @media screen and (max-width: 992px) {
   section {
     width: 100%;
-    margin-bottom: 30px;
   }
-  
+
   #home {
     padding-top: 100px;
   }
@@ -304,7 +323,7 @@ body {
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 598px) {
   .nav-item {
     display: block;
   }
@@ -315,6 +334,6 @@ body {
 
   .main-title {
     padding-left: 0;
-    margin-left: 0;
+    margin-left: 25px;
   }
 }
