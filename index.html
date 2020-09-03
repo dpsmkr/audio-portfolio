@@ -13,16 +13,15 @@
     <meta name="author" content="Jonas Dalacorte" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jonas Dalacorte Audio</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
       integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/style.css" />
@@ -60,59 +59,64 @@
     <div class="container">
       <div id="head">
         <nav id="sidenav">
-          <header>
-            <h1>Jonas Dalacorte<br /><span class="text-1">Punk Audio</span></h1>
-            <p class="title-desc">
-              Gravação, edição, mixagem, masterização.
-            </p>
-            <p class="contact">
-              <a href="mailto:jonas@yonsounds.com" target="_blank"
-                >jonas@yonsounds.com</a
-              >
-            </p>
+          <header class="main-title">
+            <h1 class="title">
+              Jonas Dalacorte<br /><span class="sub-title">Punk Audio</span>
+            </h1>
+            <p class="title-desc">Gravação, edição, mixagem, masterização.</p>
           </header>
           <input type="checkbox" id="check" />
           <label for="check" class="btn-check">
             <i class="fas fa-bars"></i>
           </label>
           <p>
-            <span class="footer">
-              <a href="https://github.com/dpsmkr" target="_blank"
+            <div class="footer">
+              <a class="link" href="https://github.com/dpsmkr" target="_blank"
                 ><i class="icon fab fa-github"></i
               ></a>
 
-              <a href="https://yonsounds.bandcamp.com" target="_blank"
+              <a
+                class="link"
+                href="https://yonsounds.bandcamp.com"
+                target="_blank"
                 ><i class="icon fab fa-bandcamp"></i
               ></a>
 
-              <a href="https://twitter.com/dpsmkd" target="_blank"
+              <a class="link" href="https://twitter.com/dpsmkd" target="_blank"
                 ><i class="icon fab fa-twitter"></i
               ></a>
 
-              <a href="https://instagram.com/dpsmkr" target="_blank"
+              <a
+                class="link"
+                href="https://instagram.com/dpsmkr"
+                target="_blank"
                 ><i class="icon fab fa-instagram"></i
               ></a>
-              <br />
-              &copy; 2020 Jonas Dalacorte.</span
+              <p>&copy; 2020 Jonas Dalacorte<br><a
+                class="mail link"
+                href="mailto:jonas@yonsounds.com"
+                target="_blank"
+                >jonas@yonsounds.com</a></p></div
             >
           </p>
 
-          <ul class="nav-bar">
-            <li><a href="#home">>> Áudio Digital</a></li>
-            <li><a href="#soundtrack">>> Soundtrack</a></li>
-            <li><a href="#misc">>> Misc.</a></li>
-            <li><a href="#">PT-BR</a> | <a href="index_en.html">EN</a></li>
-          </ul>
+          <div class="nav-bar">
+            <p class="nav-item"><a class="link" href="#home">Áudio Digital</a></p>
+            <p class="nav-item"><a class="link" href="#soundtrack">Soundtrack</a></p>
+            <p class="nav-item"><a class="link" href="#misc">Misc.</a></p>
+          </div>
         </nav>
       </div>
 
-      <section id="home" class="col-lg-6">
-        <h2>Áudio Digital</h2>
-        <p>Seleção de trabalhos de gravação, edição, mixagem e masterização.</p>
+      <section id="home">
+        <h2 class="sect-title">Áudio Digital</h2>
+        <p class="sect-desc">
+          Seleção de trabalhos de gravação, edição, mixagem e masterização.
+        </p>
         <div class="boxy">
-          <header>
+          <header class="embed-item">
             <iframe
-              style="border: 0; width: 100%; height: 120px;"
+              style="border: 0; width: 100%; height: 120px"
               src="https://bandcamp.com/EmbeddedPlayer/album=2912563220/size=large/bgcol=ffffff/linkcol=111/tracklist=false/artwork=small/transparent=true/"
               seamless
               ><a
@@ -120,56 +124,50 @@
                 >End b/w Parallel Lines by The Completers</a
               ></iframe
             >
-            <p>
+            <p class="item-title">
               The Completers, "End b/w Parallel Lines" single
             </p>
           </header>
-          <p>
+          <p class="item-desc">
             >> Produção, composição, gravação adicional (vocal, baixo,
             sintetizadores), edição, mixagem.
           </p>
         </div>
         <div class="boxy">
-          <header>
+          <header class="embed-item">
             <iframe
-              style="border: 0; width: 100%; height: 120px;"
+              style="border: 0; width: 100%; height: 120px"
               src="https://bandcamp.com/EmbeddedPlayer/album=416386720/size=large/bgcol=ffffff/linkcol=111/tracklist=false/artwork=small/transparent=true/"
               seamless
               ><a href="http://duplobinario.bandcamp.com/album/1"
                 >#1 by Duplo Binário</a
               ></iframe
             >
-            <p>
-              Duplo Binário, "#1" EP
-            </p>
+            <p class="item-title">Duplo Binário, "#1" EP</p>
           </header>
-          <p>
-            >> Mixagem, masterização.
-          </p>
+          <p class="item-desc">>> Mixagem, masterização.</p>
         </div>
         <div class="boxy">
-          <header>
+          <header class="embed-item">
             <iframe
-              style="border: 0; width: 100%; height: 120px;"
+              style="border: 0; width: 100%; height: 120px"
               src="https://bandcamp.com/EmbeddedPlayer/album=378680171/size=large/bgcol=ffffff/linkcol=111/tracklist=false/artwork=small/transparent=true/"
               seamless
               ><a href="http://paqueta.bandcamp.com/album/tropical-noir"
                 >Tropical Noir by Paquetá</a
               ></iframe
             >
-            <p>
-              Paquetá, "Tropical Noir" EP
-            </p>
+            <p class="item-title">Paquetá, "Tropical Noir" EP</p>
           </header>
-          <p>
+          <p class="item-desc">
             >> Produção, gravação adicional (sintetizadores), edição, mixagem,
             masterização.
           </p>
         </div>
         <div class="boxy">
-          <header>
+          <header class="embed-item">
             <iframe
-              style="border: 0; width: 100%; height: 120px;"
+              style="border: 0; width: 100%; height: 120px"
               src="https://bandcamp.com/EmbeddedPlayer/album=2401158703/size=large/bgcol=ffffff/linkcol=111/tracklist=false/artwork=small/transparent=true/"
               seamless
               ><a
@@ -177,27 +175,27 @@
                 >LIVING UNDER SOCIETY&#39;S THUMB by L.U.S.T.</a
               ></iframe
             >
-            <p>
+            <p class="item-title">
               L.U.S.T., "Living Under Society's Thumb" mini-álbum
             </p>
           </header>
-          <p>
+          <p class="item-desc">
             >> Produção, composição, gravação, edição, mixagem, masterização.
           </p>
         </div>
         <p class="more">
           Mais em
-          <a href="https://yonsounds.bandcamp.com" target="_blank"
+          <a class="link" href="https://yonsounds.bandcamp.com" target="_blank"
             >yonsounds.com</a
           >
         </p>
       </section>
 
-      <section id="soundtrack" class="col-lg-6">
-        <h2>Soundtrack</h2>
-        <p>Trilhas musicais para produções audio-visuais.</p>
+      <section id="soundtrack">
+        <h2 class="sect-title">Soundtrack</h2>
+        <p class="sect-desc">Trilhas musicais para produções audio-visuais.</p>
         <div class="boxy">
-          <header>
+          <header class="embed-item">
             <iframe
               class="video"
               src="https://www.youtube.com/embed/1V6A9Lo_wyE"
@@ -205,16 +203,12 @@
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
-            <p>
-              "Sem Abrigo" (2017, Leonardo Remor)
-            </p>
+            <p class="item-title">"Sem Abrigo" (2017, Leonardo Remor)</p>
           </header>
-          <p>
-            Trilha musical: "v.", dpsmkr (leaving, 2014)
-          </p>
+          <p class="item-desc">Trilha musical: "v.", dpsmkr (leaving, 2014)</p>
         </div>
         <div class="boxy">
-          <header>
+          <header class="embed-item">
             <iframe
               class="video"
               src="https://www.youtube.com/embed/kHGcmemI0mQ"
@@ -222,16 +216,12 @@
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
-            <p>
-              "White" (2018, Jaasiel Andrade)
-            </p>
+            <p class="item-title">"White" (2018, Jaasiel Andrade)</p>
           </header>
-          <p>
-            Trilha musical: "white", AKAAO (赤青, 2018)
-          </p>
+          <p class="item-desc">Trilha musical: "white", AKAAO (赤青, 2018)</p>
         </div>
         <div class="boxy">
-          <header>
+          <header class="embed-item">
             <iframe
               class="video"
               src="https://www.youtube.com/embed/aKwcJn1xBis"
@@ -239,115 +229,93 @@
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
-            <p>
+            <p class="item-title">
               "As coisas que não me deixam" (2013, Jeison Placinsch)
             </p>
           </header>
-          <p>
-            Trilha musical: "sem título", dpsmkr (2013)
-          </p>
+          <p class="item-desc">Trilha musical: "sem título", dpsmkr (2013)</p>
         </div>
       </section>
 
-      <section id="misc" class="col-lg-6">
-        <h2>Misc.</h2>
-        <p>Alguns projetos pessoais.</p>
+      <section id="misc">
+        <h2 class="sect-title">Misc.</h2>
+        <p class="sect-desc">Alguns projetos pessoais.</p>
         <div class="boxy">
-          <header>
+          <header class="embed-item">
             <iframe
-              style="border: 0; width: 100%; height: 120px;"
+              style="border: 0; width: 100%; height: 120px"
               src="https://bandcamp.com/EmbeddedPlayer/album=415896040/size=large/bgcol=ffffff/linkcol=111/tracklist=false/artwork=small/transparent=true/"
               seamless
               ><a href="http://yonsounds.bandcamp.com/album/paguroidea"
                 >paguroidea by dpsmkr &amp; collideorscapes</a
               ></iframe
             >
-            <p>
+            <p class="item-title">
               dpsmkr & collideorscapes, "paguroidea" faixa
             </p>
           </header>
-          <p>
+          <p class="item-desc">
             >> Co-produção com Gabriella Gasperim, gravação, edição, mixagem,
             masterização.
           </p>
         </div>
         <div class="boxy">
-          <header>
+          <header class="embed-item">
             <iframe
-              style="border: 0; width: 100%; height: 120px;"
+              style="border: 0; width: 100%; height: 120px"
               src="https://bandcamp.com/EmbeddedPlayer/album=264684363/size=large/bgcol=ffffff/linkcol=111/tracklist=false/artwork=small/transparent=true/"
               seamless
               ><a href="http://yonsounds.bandcamp.com/album/gizamalukes-exile"
                 >Gizamaluke&#39;s Exile by Cruise Noir</a
               ></iframe
             >
-            <p>
+            <p class="item-title">
               Cruise Noir, "Gizamaluke's Exile" mini-álbum
             </p>
           </header>
-          <p>
+          <p class="item-desc">
             >> Produção, composição, gravação, edição, mixagem, masterização.
           </p>
         </div>
         <div class="boxy">
-          <header>
+          <header class="embed-item">
             <iframe
-              style="border: 0; width: 100%; height: 120px;"
+              style="border: 0; width: 100%; height: 120px"
               src="https://bandcamp.com/EmbeddedPlayer/album=2999740193/size=large/bgcol=ffffff/linkcol=111/tracklist=false/artwork=small/transparent=true/"
               seamless
               ><a href="http://yonsounds.bandcamp.com/album/g-kotta"
                 >Gökotta by Gökotta</a
               ></iframe
             >
-            <p>
-              Gökotta, "Freak Power" compilação
-            </p>
+            <p class="item-title">Gökotta, "Freak Power" compilação</p>
           </header>
-          <p>
+          <p class="item-desc">
             >> Produção, composição, gravação, edição, mixagem, masterização.
           </p>
         </div>
         <div class="boxy">
-          <header>
+          <header class="embed-item">
             <iframe
-              style="border: 0; width: 100%; height: 120px;"
+              style="border: 0; width: 100%; height: 120px"
               src="https://bandcamp.com/EmbeddedPlayer/album=2388460072/size=large/bgcol=ffffff/linkcol=111/tracklist=false/artwork=small/transparent=true/"
               seamless
               ><a href="http://yonsounds.bandcamp.com/album/-"
                 >赤青 by AKAAO</a
               ></iframe
             >
-            <p>
-              AKAAO, "赤青" álbum
-            </p>
+            <p class="item-title">AKAAO, "赤青" álbum</p>
           </header>
-          <p>
+          <p class="item-desc">
             >> Produção, composição, gravação, edição, mixagem, masterização.
           </p>
         </div>
         <p class="more">
           Mais em
-          <a href="https://yonsounds.bandcamp.com" target="_blank"
+          <a class="link" href="https://yonsounds.bandcamp.com" target="_blank"
             >yonsounds.com</a
           >
         </p>
       </section>
     </div>
-
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>

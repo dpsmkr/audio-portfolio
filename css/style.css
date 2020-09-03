@@ -1,74 +1,42 @@
+/* setup */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Play', sans-serif;
+  font-size: 16px;
+}
+
 body {
-  line-height: 2;
-  font-family: monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 0.9rem;
 }
 
-h1 {
-  font-size: 2rem;
-}
-
-h2 {
-  font-size: 1.8rem;
-}
-
-h1,
-h2 {
-  color: #111;
-  text-transform: uppercase;
-  padding: 10px;
-  border-right: 5px solid #111;
-  border-bottom: 5px solid #111;
-}
-
-ul {
-  list-style: none;
-}
-
-section {
+/* classes */
+.container {
   margin-left: 35%;
+  margin-right: 5%;
   padding-top: 25px;
-  max-width: 100%;
+  width: 100%;
+  margin-bottom: 50px;
 }
 
-section header {
-  font-weight: bold;
-  text-align: center;
+.boxy {
+  width: 70%;
+  padding: 20px;
+  margin: 25px auto;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-section p {
-  text-align: left;
-}
-
-iframe {
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
-}
-
-a:link,
-a:visited {
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #111;
-  line-height: 3;
-  padding: 5px;
-  border-radius: 3px;
-}
-
-li a:hover,
-li a:active,
-.contact a:hover,
-.contact a:active,
-section a:hover,
-section a:active,
-h2:hover,
-.boxy:hover {
-  background: #111;
-  color: #fff;
-  text-decoration: none;
-  transition: all 0.2s ease-in;
-  border-radius: 3px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
+/* nav */
 #sidenav {
   height: 100%;
   width: 30%;
@@ -82,35 +50,107 @@ h2:hover,
   box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
 }
 
+.nav-bar {
+  margin-top: 35px;
+}
+
+.nav-item {
+  display: block;
+  margin-bottom: 30px;
+}
+
+.more .link:hover,
+.nav-bar .link:hover,
+.mail:hover {
+  border-bottom: 3px solid crimson;
+}
+
+.btn-check {
+  font-size: 1.7rem;
+  cursor: pointer;
+  display: none;
+  padding: 0 10px 10px 10px;
+  line-height: 0;
+}
+
 #check {
   display: none;
 }
 
-.contact {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-.title-desc {
-  padding-bottom: 0;
+.title {
+  font-size: 2rem;
+  border-bottom: 3px solid crimson;
   margin-bottom: 0;
+  padding-bottom: 20px;
+  line-height: 0.8;
 }
 
-.footer {
-  position: absolute;
-  bottom: 10px;
-  left: 25%;
-  text-align: center;
-}
-
-.text-1 {
-  font-size: 1.7rem;
+.sub-title {
+  margin-top: 0;
+  font-size: 1.5rem;
   text-transform: lowercase;
 }
 
-.boxy {
-  padding: 20px;
-  margin: auto;
+.title-desc {
+  margin-top: 5px;
+}
+
+.link {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #111;
+  padding: 5px;
+  margin-bottom: 25px;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+.mail {
+  text-transform: lowercase;
+}
+
+.link:hover {
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* section */
+.sect-title {
+  color: #111;
+  text-transform: uppercase;
+  padding: 10px;
+  border-right: 3px solid crimson;
+  border-bottom: 3px solid crimson;
+  border-bottom-right-radius: 5px;
+}
+
+.sect-title {
+  font-size: 1.8rem;
+}
+
+.sect-desc {
+  line-height: 2;
+  margin-top: 15px;
+}
+
+.item-title {
+  margin-top: 10px;
+  margin-bottom: 7px;
+  color: #333;
+}
+
+.item-desc {
+  line-height: 1.5;
+}
+
+.item-title,
+.item-desc {
+  text-align: center;
+}
+
+.embed-item {
+  font-weight: bold;
+  text-align: center;
 }
 
 .video {
@@ -118,6 +158,16 @@ h2:hover,
   height: 320px;
 }
 
+/* footer */
+.footer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 15px;
+  text-align: center;
+}
+
+/* social */
 .fab.fa-github:hover,
 .fab.fa-github:visited {
   color: #6e5494;
@@ -138,74 +188,72 @@ h2:hover,
   color: #f56040;
 }
 
+/* links */
 .more {
   text-align: center;
 }
 
-.btn-check {
-  font-size: 1.5rem;
-  cursor: pointer;
-  display: none;
-  padding: 0 10px 10px 10px;
-  line-height: 0;
-}
-
+/* queries */
 @media screen and (max-width: 992px) {
-  h1,
-  .text-1 {
-    font-size: 1.5rem;
-    border: 0 transparent;
-  }
-
-  h2 {
-    text-align: center;
-  }
-
   section {
     width: 100%;
-    margin: auto;
+    margin-bottom: 30px;
   }
-
-  li {
-    padding-right: 5px;
-    display: inline-block;
-    font-size: 0.9rem;
-  }
-
+  
   #home {
-    padding-top: 170px;
+    padding-top: 100px;
   }
 
   #sidenav {
     width: 100%;
-    height: 120px;
+    height: 110px;
     padding: 5px;
     margin: auto;
     background: #fff;
   }
+  .container {
+    width: 90%;
+    margin: auto;
+  }
 
-  #sidenav header {
-    padding-left: 7%;
+  .title,
+  .sub-title {
+    font-size: 1.5rem;
+    border: 0 transparent;
+  }
+
+  .sect-title {
+    text-align: center;
+  }
+
+  .nav-item {
+    padding-left: 25px;
+    display: inline-block;
+    font-size: 0.9rem;
+  }
+
+  .main-title {
+    margin-top: 15px;
+    padding-left: 10%;
+    padding-right: 15px;
     text-align: right;
     position: fixed;
-    border-bottom: 3px solid #111;
-    border-right: 3px solid #111;
+    border-right: 3px solid crimson;
   }
 
   .nav-bar {
     display: block;
     position: absolute;
     width: 97%;
-    top: 35%;
     margin-bottom: 0;
     transition: all 0.3s ease-in;
   }
 
-  .nav-bar a {
+  .nav-bar .link {
     line-height: 1.5;
   }
 
-  .contact {
+  .mail {
     position: absolute;
     margin-bottom: 0;
     margin-left: 25%;
@@ -227,22 +275,26 @@ h2:hover,
   }
 }
 
-@media screen and (max-width: 799px) {
-  li {
-    display: block;
+@media screen and (max-width: 768px) {
+  .nav-item {
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
+
   .nav-bar {
-    top: 5px;
     width: 85%;
+    top: 0;
+    margin-top: 5px;
     left: -100%;
     height: 100%;
     background: #fefefe;
-    border-top: 3px solid #111;
+    border-top: 3px solid crimson;
   }
 
   .btn-check {
-    margin-top: 0;
+    margin-top: 5px;
     display: block;
+    color: crimson;
   }
 
   #check:checked ~ .nav-bar {
@@ -250,12 +302,16 @@ h2:hover,
   }
 }
 
-@media screen and (max-width: 280px) {
+@media screen and (max-width: 450px) {
+  .nav-item {
+    display: block;
+  }
+
   .nav-bar {
     width: 83%;
   }
 
-  #sidenav header {
+  .main-title {
     padding-left: 0;
     margin-left: 0;
   }
