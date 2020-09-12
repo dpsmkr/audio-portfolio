@@ -217,6 +217,9 @@ section {
 
 /* queries */
 @media screen and (max-width: 992px) {
+  .boxy {
+    width: 80%;
+  }
   section {
     width: 100%;
   }
@@ -297,6 +300,10 @@ section {
 }
 
 @media screen and (max-width: 768px) {
+  .boxy {
+    width: 100%;
+  }
+
   .nav-item {
     margin-bottom: 10px;
     margin-top: 10px;
