@@ -1,147 +1,189 @@
-import React, { useState, useEffect, useRef } from "react";
-
-export default function AudioPortfolio() {
-  const [filter, setFilter] = useState({ section: "Todas", year: "Todos" });
-  const [showTopButton, setShowTopButton] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [filteredItems, setFilteredItems] = useState([]);
-  const [animating, setAnimating] = useState(false);
-
-  const sidebarRef = useRef(null);
-
-  // ======= Dados completos =======
-  const audiovisual = [
-    { title: "Um Filme de BR", role: "Pós-produção de Áudio", year: "2025", description: "Documentário longa-metragem de Wender Zanon (Canoas-RS).", link: "http://imdb.com/title/tt8114480/fullcredits?ref_=tt_cl_sm#cast" },
-    { title: "Ensaios Sobre Uma Cidade", role: "Pós-produção de Áudio", year: "2024", description: "Curta documentário de Wender Zanon (Canoas-RS).", link: "http://youtu.be/s9QQOOeqh0w" },
-    { title: "This Is Canoas Not POA", role: "Pós-produção de Áudio", year: "2021", description: "Documentário longa-metragem de Wender Zanon.", link: "http://youtu.be/Bo4mRjjIRiA" },
-    { title: "Sem Abrigo", role: "Trilha Original", year: "2017", description: "Curta de Leonardo Remor. Trilha 'V', dpsmkr. Premiado no 46º Festival de Cinema de Gramado.", link: "http://dpsmkr.bandcamp.com/track/v" },
-    { title: "White", role: "Trilha Original", year: "2017", description: "Curta de Jaasiel Andrade. Trilha 'White', AKAAO.", link: "http://akaao.bandcamp.com/track/white" },
-    { title: "As coisas que não me deixam", role: "Trilha Original", year: "2017", description: "Curta de Jeison Placinsch. Trilha 'Sem Título', dpsmkr." }
-  ];
-
-  const albums = [
-    { title: "Idade da Desordem", artist: "Idade da Desordem", role: "Produção, Gravação, Edição, Mixagem, Masterização", year: "2025", link: "https://idadedadesordem.bandcamp.com/album/idade-da-desordem" },
-    { title: "The Completers", artist: "The Completers", role: "Produção, Gravação, Edição, Mixagem", year: "2025", link: "http://thecompleters.bandcamp.com/album/the-completers" },
-    { title: "deumdentrodooutro", artist: "Mal dos Trópicos", role: "Produção, Gravação, Edição, Mixagem, Masterização", year: "2024", link: "https://maldostropicos.bandcamp.com/album/deumdentrodooutro" },
-    { title: "13072024", artist: "dpsmkr", role: "Composição, Gravação, Edição, Mixagem, Masterização", year: "2024", link: "http://dpsmkr.bandcamp.com/album/13072024-live" },
-    { title: "Cortina de Fumaça", artist: "Cortina de Fumaça", role: "Composição, Gravação, Edição, Mixagem, Masterização", year: "2024", link: "http://cortinadefumaca.bandcamp.com/album/cortina-de-fuma-a" },
-    { title: "The Count", artist: "The Count", role: "Composição, Gravação, Edição, Mixagem, Masterização", year: "2024", link: "http://the-count.bandcamp.com/album/the-count" },
-    { title: "Aggressive & Top", artist: "MÄSKARA", role: "Composição, Pré-produção, Produção", year: "2023", link: "http://maskarabr.bandcamp.com/album/aggressive-top" },
-    { title: "04122022", artist: "dpsmkr", role: "Composição, Gravação, Edição, Mixagem, Masterização", year: "2022", link: "http://dpsmkr.bandcamp.com/album/04122022-live" }
-  ];
-
-  const eps = [
-    { title: "vol. 5", artist: "dpsmkr", role: "Composição, Gravação, Edição, Mixagem, Masterização", year: "2021" },
-    { title: "1554", artist: "dpsmkr", role: "Composição, Gravação, Edição, Mixagem, Masterização", year: "2020" },
-    { title: "#1", artist: "Duplo Binário", role: "Mixagem, Masterização", year: "2019" },
-    { title: "Tropical Noir", artist: "Paquetá", role: "Pré-produção, Produção, Gravação, Edição, Mixagem, Masterização", year: "2019" },
-    { title: "S/T", artist: "Conflito", role: "Pré-produção, Produção, Composição, Edição, Mixagem, Masterização", year: "2019" }
-  ];
-
-  const singles = [
-    { title: "Faixa Bônus", artist: "Paquetá", role: "Masterização", year: "2019" },
-    { title: "Neal! Allen!", artist: "Cruise Noir", role: "Composição, Programação, Gravação, Edição, Mixagem, Masterização", year: "2018" },
-    { title: "Computer Music", artist: "Cruise Noir", role: "Composição, Programação, Gravação, Edição, Mixagem, Masterização", year: "2017" },
-    { title: "赤青", artist: "AKAAO", role: "Composição, Gravação, Edição, Mixagem, Masterização", year: "2018" }
-  ];
-
-  const podcasts = [
-    { title: "This is Canoas Podcast", role: "Gravação, Edição, Mixagem", year: "2021" }
-  ];
-
-  const splits = [
-    { title: "dpsmkr vs. corpo celeste", role: "Composição, Gravação, Edição, Mixagem, Masterização", year: "2019" },
-    { title: "Revolcadas / G. Paim / Ariel Teske + G. Paim", role: "Gravação, Edição, Mixagem, Masterização", year: "2018" }
-  ];
-
-  const sections = [
-    { name: "Todas", items: [...audiovisual, ...albums, ...eps, ...singles, ...podcasts, ...splits] },
-    { name: "Audiovisual", items: audiovisual },
-    { name: "Álbuns", items: albums },
-    { name: "EPs / Mini-álbuns", items: eps },
-    { name: "Singles / Faixas", items: singles },
-    { name: "Podcasts", items: podcasts },
-    { name: "Splits / Colaborações", items: splits }
-  ];
-
-  const years = ["Todos","2025","2024","2023","2022","2021","2020","2019","2018","2017","2016","2015","2014","2013"];
-
-  // ======= Filtro com animação =======
-  const applyFilter = (newFilter) => {
-    setAnimating(true);
-    setTimeout(() => {
-      setFilter(newFilter);
-      setAnimating(false);
-      // Scroll suave para o topo do conteúdo
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      // Scroll na sidebar para o filtro ativo
-      if (sidebarRef.current) {
-        const activeButton = sidebarRef.current.querySelector(".active-filter");
-        if (activeButton) activeButton.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    }, 300); // tempo do fade-out
-  };
-
-  useEffect(() => {
-    let items = sections.find(sec => sec.name === filter.section)?.items || [];
-    if (filter.year !== "Todos") items = items.filter(item => item.year === filter.year);
-    setFilteredItems(items);
-  }, [filter]);
-
-  useEffect(() => {
-    const handleScroll = () => setShowTopButton(window.scrollY > 300);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
-  return (
-    <div className="min-h-screen flex flex-col md:flex-row bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 text-gray-900 relative">
-
-      {/* Overlay mobile */}
-      {menuOpen && <div onClick={() => setMenuOpen(false)} className="fixed inset-0 bg-black bg-opacity-40 z-40 transition-opacity"></div>}
-
-      {/* Header mobile */}
-      <header className="md:hidden flex items-center justify-between bg-blue-600 text-white p-4 shadow-lg z-50 relative">
-        <h1 className="font-bold text-lg">Portfólio de Áudio</h1>
-        <button onClick={() => setMenuOpen(!menuOpen)} className="text-white text-2xl font-bold">☰</button>
-      </header>
-
-      {/* Sidebar */}
-      <aside ref={sidebarRef} className={`w-64 bg-gradient-to-b from-blue-600 to-blue-400 text-white shadow-lg p-6 md:h-screen overflow-auto fixed md:relative z-50 transform transition-transform duration-300 ease-in-out ${menuOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}>
-        <h2 className="text-2xl font-bold mb-4">Seções</h2>
-        {sections.map((sec, i) => (
-          <button key={i} className={`block w-full text-left py-2 mb-2 px-3 rounded-lg transition-all duration-200 ${filter.section === sec.name ? 'bg-white text-blue-600 shadow-lg active-filter' : 'hover:bg-white hover:text-blue-600'}`} onClick={() => applyFilter({ ...filter, section: sec.name })}>{sec.name}</button>
-        ))}
-        <h2 className="text-2xl font-bold mt-6 mb-2">Ano</h2>
-        {years.map((y, i) => (
-          <button key={i} className={`block w-full text-left py-2 mb-2 px-3 rounded-lg transition-all duration-200 ${filter.year === y ? 'bg-white text-blue-600 shadow-lg active-filter' : 'hover:bg-white hover:text-blue-600'}`} onClick={() => applyFilter({ ...filter, year: y })}>{y}</button>
-        ))}
-      </aside>
-
-      {/* Main content */}
-      <main className="flex-1 p-6 md:p-8 md:ml-64">
-        <h1 className="text-3xl md:text-4xl font-extrabold mb-6">Portfólio de Áudio — Jonas A. Dalacorte</h1>
-        <div className={`grid gap-6 sm:grid-cols-2 lg:grid-cols-3 transition-opacity duration-300 ${animating ? 'opacity-0' : 'opacity-100'}`}>
-          {filteredItems.map((item, i) => (
-            <div key={i} style={{ animationDelay: `${i*50}ms` }} className="bg-white p-5 rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 opacity-0 animate-fadeIn">
-              <h3 className="font-semibold text-lg md:text-xl">{item.title}{item.artist ? ` — ${item.artist}` : ''}</h3>
-              <div className="text-sm md:text-base text-gray-500 mt-1">{item.role} • {item.year}</div>
-              {item.description && <p className="mt-2 text-sm md:text-base text-gray-700">{item.description}</p>}
-              {item.link && <a href={item.link} target="_blank" rel="noreferrer" className="text-blue-600 text-sm md:text-base underline mt-2 inline-block">Ouvir / Ver</a>}
-            </div>
-          ))}
-        </div>
-      </main>
-
-      {/* Botão Topo */}
-      {showTopButton && <button onClick={scrollToTop} className="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-500 transition-colors">↑ Topo</button>}
-
-      <style jsx>{`
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fadeIn { animation: fadeIn 0.6s ease forwards; }
-      `}</style>
-    </div>
-  );
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfólio de Áudio — Jonas A. Dalacorte</title>
+<style>
+:root {
+  --sidebar-width: 260px;
+  --transition-speed: 0.4s;
+  --card-transition: 0.5s;
 }
+*{box-sizing:border-box;margin:0;padding:0;font-family:sans-serif;}
+body{transition: background var(--transition-speed);background:#f0f0f0;color:#111;}
+header{
+  position:fixed;top:0;width:100%;z-index:100;
+  background:#333;color:white;padding:1rem 1.5rem;
+  display:flex;justify-content:space-between;align-items:center;
+  box-shadow:0 2px 8px rgba(0,0,0,0.3);
+}
+header h1{font-size:1.25rem;}
+button{cursor:pointer;border:none;background:none;color:inherit;font:inherit;padding:0;}
+
+aside{
+  width:var(--sidebar-width);
+  background:#444;color:white;padding:1rem;
+  position:fixed;top:0;bottom:0;overflow:auto;
+  transition:transform var(--transition-speed);
+  z-index:100;
+}
+aside h2{margin-bottom:.5rem;font-size:1.2rem;}
+aside button{
+  display:block;width:100%;text-align:left;
+  padding:.5rem 1rem;margin-bottom:.25rem;border-radius:.5rem;
+  transition:background var(--transition-speed), color var(--transition-speed), transform 0.3s;
+  background:#555;color:white;
+}
+aside button.active{
+  background:#ccc;color:#111;
+  box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+aside button:hover:not(.active){background:#666;color:white;transform:translateX(5px);}
+
+main{
+  margin-left:var(--sidebar-width);
+  padding:1rem;padding-top:5rem;
+  transition:margin-left var(--transition-speed);
+}
+
+#itemCount{margin-bottom:1rem;font-weight:bold;font-size:1rem;color:#333;}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:1rem;
+}
+
+.card{
+  padding:1rem;border-radius:1rem;color:#111;
+  background:#ddd;
+  opacity:0;transform:translateY(30px);
+  transition:transform var(--card-transition),opacity var(--card-transition),box-shadow 0.3s;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+.card.show{opacity:1;transform:translateY(0);}
+.card:hover{
+  box-shadow:0 10px 20px rgba(0,0,0,0.3);
+  transform:translateY(-8px);
+}
+.card h3{font-size:1.1rem;margin-bottom:.25rem;}
+.card p{font-size:.9rem;margin:.25rem 0;}
+.card a{color:#333;text-decoration:underline;font-weight:bold;}
+
+#topBtn{
+  position:fixed;bottom:1rem;right:1rem;
+  background:#333;color:white;padding:.7rem 1rem;
+  border-radius:50%;cursor:pointer;display:none;
+  box-shadow:0 2px 8px rgba(0,0,0,0.3);transition:transform 0.3s;
+}
+#topBtn:hover{transform:scale(1.1);}
+
+@media(max-width:768px){
+  aside{transform:translateX(-100%);position:fixed;}
+  aside.open{transform:translateX(0);}
+  main{margin-left:0;padding-top:5rem;}
+  header button{font-size:1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Portfólio de Áudio</h1>
+  <button id="menuBtn">☰</button>
+</header>
+
+<aside id="sidebar">
+  <h2>Seções</h2>
+  <div id="sections"></div>
+  <h2>Ano</h2>
+  <div id="years"></div>
+</aside>
+
+<main>
+  <h1>Portfólio de Áudio — Jonas A. Dalacorte</h1>
+  <div id="itemCount"></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<button id="topBtn">↑</button>
+
+<script>
+// ===== Dados =====
+const audiovisual = [
+  {title:"Um Filme de BR",role:"Pós-produção de Áudio",year:"2025",description:"Documentário longa-metragem de Wender Zanon (Canoas-RS).",link:"http://imdb.com/title/tt8114480/fullcredits?ref_=tt_cl_sm#cast"},
+  {title:"Ensaios Sobre Uma Cidade",role:"Pós-produção de Áudio",year:"2024",description:"Curta documentário de Wender Zanon (Canoas-RS).",link:"http://youtu.be/s9QQOOeqh0w"}
+];
+const albums=[{title:"Idade da Desordem",artist:"Idade da Desordem",role:"Produção, Gravação, Edição, Mixagem, Masterização",year:"2025",link:"https://idadedadesordem.bandcamp.com/album/idade-da-desordem"}];
+const eps=[{title:"vol. 5",artist:"dpsmkr",role:"Composição, Gravação, Edição, Mixagem, Masterização",year:"2021"}];
+const singles=[{title:"Faixa Bônus",artist:"Paquetá",role:"Masterização",year:"2019"}];
+const podcasts=[{title:"This is Canoas Podcast",role:"Gravação, Edição, Mixagem",year:"2021"}];
+const splits=[{title:"dpsmkr vs. corpo celeste",role:"Composição, Gravação, Edição, Mixagem, Masterização",year:"2019"}];
+const sectionsData=[
+  {name:"Todas",items:[...audiovisual,...albums,...eps,...singles,...podcasts,...splits]},
+  {name:"Audiovisual",items:audiovisual},
+  {name:"Álbuns",items:albums},
+  {name:"EPs / Mini-álbuns",items:eps},
+  {name:"Singles / Faixas",items:singles},
+  {name:"Podcasts",items:podcasts},
+  {name:"Splits / Colaborações",items:splits}
+];
+const yearsData=["Todos","2025","2024","2023","2022","2021","2020","2019","2018","2017"];
+let currentFilter={section:"Todas",year:"Todos"};
+
+// ===== Funções =====
+function renderGrid(){
+  const grid=document.getElementById("grid");grid.innerHTML="";
+  let items=sectionsData.find(s=>s.name===currentFilter.section).items;
+  if(currentFilter.year!=="Todos") items=items.filter(i=>i.year===currentFilter.year);
+  document.getElementById("itemCount").textContent=`${items.length} item(s) encontrado(s)`;
+  items.forEach((i,index)=>{
+    const div=document.createElement("div");
+    div.className="card";
+    setTimeout(()=>div.classList.add("show"),index*60);
+    div.innerHTML=`<h3>${i.title}${i.artist?" — "+i.artist:""}</h3><div>${i.role} • ${i.year}</div>${i.description?`<p>${i.description}</p>`:""}${i.link?`<a href="${i.link}" target="_blank">Ouvir / Ver</a>`:""}`;
+    grid.appendChild(div);
+  });
+}
+
+// ===== Filtro =====
+function renderFilters(){
+  const secCont=document.getElementById("sections");
+  sectionsData.forEach(s=>{
+    const btn=document.createElement("button");
+    btn.textContent=s.name;
+    btn.onclick=()=>{currentFilter.section=s.name;renderGrid();closeMenu();btnsActive();};
+    secCont.appendChild(btn);
+  });
+  const yrCont=document.getElementById("years");
+  yearsData.forEach(y=>{
+    const btn=document.createElement("button");
+    btn.textContent=y;
+    btn.onclick=()=>{currentFilter.year=y;renderGrid();closeMenu();btnsActive();};
+    yrCont.appendChild(btn);
+  });
+  btnsActive();
+}
+
+function btnsActive(){
+  document.querySelectorAll("#sections button").forEach(b=>b.classList.toggle("active",b.textContent===currentFilter.section));
+  document.querySelectorAll("#years button").forEach(b=>b.classList.toggle("active",b.textContent===currentFilter.year));
+}
+
+function toggleMenu(){document.getElementById("sidebar").classList.toggle("open");}
+function closeMenu(){document.getElementById("sidebar").classList.remove("open");}
+
+document.getElementById("menuBtn").onclick=toggleMenu;
+window.onscroll=()=>{
+  document.getElementById("topBtn").style.display=window.scrollY>300?"block":"none";
+};
+document.getElementById("topBtn").onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+
+// Inicialização
+renderFilters();
+renderGrid();
+</script>
+
+</body>
+</html>
