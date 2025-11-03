@@ -10,80 +10,76 @@
   --transition-speed: 0.4s;
   --card-transition: 0.5s;
 }
-*{box-sizing:border-box;margin:0;padding:0;font-family:sans-serif;}
-body{transition: background var(--transition-speed);background:#f0f0f0;color:#111;}
-header{
-  position:fixed;top:0;width:100%;z-index:100;
-  background:#333;color:white;padding:1rem 1.5rem;
-  display:flex;justify-content:space-between;align-items:center;
-  box-shadow:0 2px 8px rgba(0,0,0,0.3);
-}
-header h1{font-size:1.25rem;}
-button{cursor:pointer;border:none;background:none;color:inherit;font:inherit;padding:0;}
 
-aside{
-  width:var(--sidebar-width);
-  background:#444;color:white;padding:1rem;
-  position:fixed;top:0;bottom:0;overflow:auto;
-  transition:transform var(--transition-speed);
-  z-index:100;
-}
-aside h2{margin-bottom:.5rem;font-size:1.2rem;}
-aside button{
-  display:block;width:100%;text-align:left;
-  padding:.5rem 1rem;margin-bottom:.25rem;border-radius:.5rem;
-  transition:background var(--transition-speed), color var(--transition-speed), transform 0.3s;
-  background:#555;color:white;
-}
-aside button.active{
-  background:#ccc;color:#111;
-  box-shadow:0 0 10px rgba(0,0,0,0.3);
-}
-aside button:hover:not(.active){background:#666;color:white;transform:translateX(5px);}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+body { background: #f5f5f5; color: #111; transition: background var(--transition-speed); }
 
-main{
-  margin-left:var(--sidebar-width);
-  padding:1rem;padding-top:5rem;
-  transition:margin-left var(--transition-speed);
+header {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  background: #333; color: white; padding: 1rem 1.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
+header h1 { font-size: 1.25rem; }
+button { cursor: pointer; border: none; background: none; color: inherit; font: inherit; padding: 0; }
 
-#itemCount{margin-bottom:1rem;font-weight:bold;font-size:1rem;color:#333;}
+aside {
+  width: var(--sidebar-width);
+  background: #444; color: white; padding: 1rem;
+  float: left;
+}
+aside h2 { margin-bottom: .5rem; font-size: 1.2rem; }
+aside button {
+  display: block; width: 100%; text-align: left;
+  padding: .5rem 1rem; margin-bottom: .25rem; border-radius: .5rem;
+  transition: background var(--transition-speed), color var(--transition-speed), transform 0.3s;
+  background: #555; color: white;
+}
+aside button.active {
+  background: #ccc; color: #111;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+aside button:hover:not(.active) { background: #666; color: white; transform: translateX(5px); }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
-  gap:1rem;
+main {
+  margin-left: var(--sidebar-width);
+  padding: 1rem; padding-top: 5rem;
+  transition: margin-left var(--transition-speed);
+  min-height: 100vh;
 }
 
-.card{
-  padding:1rem;border-radius:1rem;color:#111;
-  background:#ddd;
-  opacity:0;transform:translateY(30px);
-  transition:transform var(--card-transition),opacity var(--card-transition),box-shadow 0.3s;
-  box-shadow:0 4px 12px rgba(0,0,0,0.2);
-}
-.card.show{opacity:1;transform:translateY(0);}
-.card:hover{
-  box-shadow:0 10px 20px rgba(0,0,0,0.3);
-  transform:translateY(-8px);
-}
-.card h3{font-size:1.1rem;margin-bottom:.25rem;}
-.card p{font-size:.9rem;margin:.25rem 0;}
-.card a{color:#333;text-decoration:underline;font-weight:bold;}
+#itemCount { margin-bottom: 1rem; font-weight: bold; font-size: 1rem; color: #333; }
 
-#topBtn{
-  position:fixed;bottom:1rem;right:1rem;
-  background:#333;color:white;padding:.7rem 1rem;
-  border-radius:50%;cursor:pointer;display:none;
-  box-shadow:0 2px 8px rgba(0,0,0,0.3);transition:transform 0.3s;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+  gap: 1rem;
 }
-#topBtn:hover{transform:scale(1.1);}
+
+.card {
+  padding: 1rem; border-radius: 1rem; color: #111;
+  background: #ddd; opacity: 0; transform: translateY(30px);
+  transition: transform var(--card-transition), opacity var(--card-transition), box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.card.show { opacity: 1; transform: translateY(0); }
+.card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.3); transform: translateY(-8px); }
+.card h3 { font-size: 1.1rem; margin-bottom: .25rem; }
+.card p { font-size: .9rem; margin:.25rem 0; }
+.card a { color: #111; text-decoration: underline; font-weight: bold; }
+
+#topBtn {
+  position: fixed; bottom: 1rem; right: 1rem;
+  background: #333; color: white; padding: .7rem 1rem;
+  border-radius: 50%; cursor: pointer; display: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3); transition: transform 0.3s;
+}
+#topBtn:hover { transform: scale(1.1); }
 
 @media(max-width:768px){
-  aside{transform:translateX(-100%);position:fixed;}
-  aside.open{transform:translateX(0);}
-  main{margin-left:0;padding-top:5rem;}
-  header button{font-size:1.5rem;}
+  aside { float: none; width: 100%; margin-bottom: 1rem; }
+  main { margin-left: 0; padding-top: 5rem; }
+  header button { font-size: 1.5rem; }
 }
 </style>
 </head>
@@ -91,10 +87,9 @@ main{
 
 <header>
   <h1>Portfólio de Áudio</h1>
-  <button id="menuBtn">☰</button>
 </header>
 
-<aside id="sidebar">
+<aside>
   <h2>Seções</h2>
   <div id="sections"></div>
   <h2>Ano</h2>
@@ -110,17 +105,52 @@ main{
 <button id="topBtn">↑</button>
 
 <script>
-// ===== Dados =====
+// ===== Dados completos =====
 const audiovisual = [
   {title:"Um Filme de BR",role:"Pós-produção de Áudio",year:"2025",description:"Documentário longa-metragem de Wender Zanon (Canoas-RS).",link:"http://imdb.com/title/tt8114480/fullcredits?ref_=tt_cl_sm#cast"},
-  {title:"Ensaios Sobre Uma Cidade",role:"Pós-produção de Áudio",year:"2024",description:"Curta documentário de Wender Zanon (Canoas-RS).",link:"http://youtu.be/s9QQOOeqh0w"}
+  {title:"Ensaios Sobre Uma Cidade",role:"Pós-produção de Áudio",year:"2024",description:"Curta documentário de Wender Zanon (Canoas-RS).",link:"http://youtu.be/s9QQOOeqh0w"},
+  {title:"This Is Canoas Not POA",role:"Pós-produção de Áudio",year:"2021",description:"Documentário longa-metragem de Wender Zanon.",link:"http://youtu.be/Bo4mRjjIRiA"},
+  {title:"Sem Abrigo",role:"Trilha Original",year:"2017",description:"Curta de Leonardo Remor. Trilha 'V', dpsmkr. Premiado no 46º Festival de Cinema de Gramado.",link:"http://dpsmkr.bandcamp.com/track/v"},
+  {title:"White",role:"Trilha Original",year:"2017",description:"Curta de Jaasiel Andrade. Trilha 'White', AKAAO.",link:"http://akaao.bandcamp.com/track/white"},
+  {title:"As coisas que não me deixam",role:"Trilha Original",year:"2017",description:"Curta de Jeison Placinsch. Trilha 'Sem Título', dpsmkr."}
 ];
-const albums=[{title:"Idade da Desordem",artist:"Idade da Desordem",role:"Produção, Gravação, Edição, Mixagem, Masterização",year:"2025",link:"https://idadedadesordem.bandcamp.com/album/idade-da-desordem"}];
-const eps=[{title:"vol. 5",artist:"dpsmkr",role:"Composição, Gravação, Edição, Mixagem, Masterização",year:"2021"}];
-const singles=[{title:"Faixa Bônus",artist:"Paquetá",role:"Masterização",year:"2019"}];
-const podcasts=[{title:"This is Canoas Podcast",role:"Gravação, Edição, Mixagem",year:"2021"}];
-const splits=[{title:"dpsmkr vs. corpo celeste",role:"Composição, Gravação, Edição, Mixagem, Masterização",year:"2019"}];
-const sectionsData=[
+
+const albums = [
+  {title:"Idade da Desordem",artist:"Idade da Desordem",role:"Produção, Gravação, Edição, Mixagem, Masterização",year:"2025",link:"https://idadedadesordem.bandcamp.com/album/idade-da-desordem"},
+  {title:"The Completers",artist:"The Completers",role:"Produção, Gravação, Edição, Mixagem",year:"2025",link:"http://thecompleters.bandcamp.com/album/the-completers"},
+  {title:"deumdentrodooutro",artist:"Mal dos Trópicos",role:"Produção, Gravação, Edição, Mixagem, Masterização",year:"2024",link:"https://maldostropicos.bandcamp.com/album/deumdentrodooutro"},
+  {title:"13072024",artist:"dpsmkr",role:"Composição, Gravação, Edição, Mixagem, Masterização",year:"2024",link:"http://dpsmkr.bandcamp.com/album/13072024-live"},
+  {title:"Cortina de Fumaça",artist:"Cortina de Fumaça",role:"Composição, Gravação, Edição, Mixagem, Masterização",year:"2024",link:"http://cortinadefumaca.bandcamp.com/album/cortina-de-fuma-a"},
+  {title:"The Count",artist:"The Count",role:"Composição, Gravação, Edição, Mixagem, Masterização",year:"2024",link:"http://the-count.bandcamp.com/album/the-count"},
+  {title:"Aggressive & Top",artist:"MÄSKARA",role:"Composição, Pré-produção, Produção",year:"2023",link:"http://maskarabr.bandcamp.com/album/aggressive-top"},
+  {title:"04122022",artist:"dpsmkr",role:"Composição, Gravação, Edição, Mixagem, Masterização",year:"2022",link:"http://dpsmkr.bandcamp.com/album/04122022-live"}
+];
+
+const eps = [
+  {title:"vol. 5",artist:"dpsmkr",role:"Composição, Gravação, Edição, Mixagem, Masterização",year:"2021"},
+  {title:"1554",artist:"dpsmkr",role:"Composição, Gravação, Edição, Mixagem, Masterização",year:"2020"},
+  {title:"#1",artist:"Duplo Binário",role:"Mixagem, Masterização",year:"2019"},
+  {title:"Tropical Noir",artist:"Paquetá",role:"Pré-produção, Produção, Gravação, Edição, Mixagem, Masterização",year:"2019"},
+  {title:"S/T",artist:"Conflito",role:"Pré-produção, Produção, Composição, Edição, Mixagem, Masterização",year:"2019"}
+];
+
+const singles = [
+  {title:"Faixa Bônus",artist:"Paquetá",role:"Masterização",year:"2019"},
+  {title:"Neal! Allen!",artist:"Cruise Noir",role:"Composição, Programação, Gravação, Edição, Mixagem, Masterização",year:"2018"},
+  {title:"Computer Music",artist:"Cruise Noir",role:"Composição, Programação, Gravação, Edição, Mixagem, Masterização",year:"2017"},
+  {title:"赤青",artist:"AKAAO",role:"Composição, Gravação, Edição, Mixagem, Masterização",year:"2018"}
+];
+
+const podcasts = [
+  {title:"This is Canoas Podcast",role:"Gravação, Edição, Mixagem",year:"2021"}
+];
+
+const splits = [
+  {title:"dpsmkr vs. corpo celeste",role:"Composição, Gravação, Edição, Mixagem, Masterização",year:"2019"},
+  {title:"Revolcadas / G. Paim / Ariel Teske + G. Paim",role:"Gravação, Edição, Mixagem, Masterização",year:"2018"}
+];
+
+const sectionsData = [
   {name:"Todas",items:[...audiovisual,...albums,...eps,...singles,...podcasts,...splits]},
   {name:"Audiovisual",items:audiovisual},
   {name:"Álbuns",items:albums},
@@ -129,38 +159,38 @@ const sectionsData=[
   {name:"Podcasts",items:podcasts},
   {name:"Splits / Colaborações",items:splits}
 ];
+
 const yearsData=["Todos","2025","2024","2023","2022","2021","2020","2019","2018","2017"];
 let currentFilter={section:"Todas",year:"Todos"};
 
 // ===== Funções =====
 function renderGrid(){
   const grid=document.getElementById("grid");grid.innerHTML="";
-  let items=sectionsData.find(s=>s.name===currentFilter.section).items;
+  let items=sectionsData.find(s=>s.name===currentFilter.section).items.slice(); // .slice() garante cópia
   if(currentFilter.year!=="Todos") items=items.filter(i=>i.year===currentFilter.year);
   document.getElementById("itemCount").textContent=`${items.length} item(s) encontrado(s)`;
   items.forEach((i,index)=>{
     const div=document.createElement("div");
     div.className="card";
-    setTimeout(()=>div.classList.add("show"),index*60);
+    setTimeout(()=>div.classList.add("show"),index*50);
     div.innerHTML=`<h3>${i.title}${i.artist?" — "+i.artist:""}</h3><div>${i.role} • ${i.year}</div>${i.description?`<p>${i.description}</p>`:""}${i.link?`<a href="${i.link}" target="_blank">Ouvir / Ver</a>`:""}`;
     grid.appendChild(div);
   });
 }
 
-// ===== Filtro =====
 function renderFilters(){
   const secCont=document.getElementById("sections");
   sectionsData.forEach(s=>{
     const btn=document.createElement("button");
     btn.textContent=s.name;
-    btn.onclick=()=>{currentFilter.section=s.name;renderGrid();closeMenu();btnsActive();};
+    btn.onclick=()=>{currentFilter.section=s.name;renderGrid();btnsActive();};
     secCont.appendChild(btn);
   });
   const yrCont=document.getElementById("years");
   yearsData.forEach(y=>{
     const btn=document.createElement("button");
     btn.textContent=y;
-    btn.onclick=()=>{currentFilter.year=y;renderGrid();closeMenu();btnsActive();};
+    btn.onclick=()=>{currentFilter.year=y;renderGrid();btnsActive();};
     yrCont.appendChild(btn);
   });
   btnsActive();
@@ -171,14 +201,8 @@ function btnsActive(){
   document.querySelectorAll("#years button").forEach(b=>b.classList.toggle("active",b.textContent===currentFilter.year));
 }
 
-function toggleMenu(){document.getElementById("sidebar").classList.toggle("open");}
-function closeMenu(){document.getElementById("sidebar").classList.remove("open");}
-
-document.getElementById("menuBtn").onclick=toggleMenu;
-window.onscroll=()=>{
-  document.getElementById("topBtn").style.display=window.scrollY>300?"block":"none";
-};
 document.getElementById("topBtn").onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+window.onscroll=()=>{document.getElementById("topBtn").style.display=window.scrollY>300?"block":"none";}
 
 // Inicialização
 renderFilters();
